@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses (12 Levels) - RMCodelab Academy</title>
+  <link rel="stylesheet" href="style.css?v=5">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+  <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: white;">
+    <img src="images/logo.png" alt="RMCodelab Logo" class="nav-logo">
+    <h2>RM<span>CodeLab</span></h2>
+  </a>
+</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html" class="active">Courses (12 Levels)</a></li>
+        <li><a href="news.html">News &amp; Announcements</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+    <a href="courses.html" class="btn-primary">Start Learning</a>
+  </header>
+
+  <section class="page-banner">
+    <h1>12-Level Learning Path</h1>
+    <p>Select any level to start watching your course modules instantly.</p>
+  </section>
+
+  <main class="section">
+    <div class="grid-container" id="all-courses-grid">
+      <p>Loading courses...</p>
+    </div>
+  </main>
+
+  <div id="video-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <button class="close-modal" id="close-modal" type="button" aria-label="Close video">&times;</button>
+      <h2 id="modal-title" style="margin-bottom: 1rem;"></h2>
+      <div class="video-wrapper">
+        <iframe id="modal-iframe" src="" title="Course video" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p id="modal-description" style="margin-top: 1rem; color: #64748b;"></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 RMCodelab Academy. All rights reserved.</p>
+  </footer>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+    import { getFirestore, collection, getDocs, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAalxUPuYwF556UN32_-SLxEIirmeI7JIM",
+      authDomain: "html-project-fac38.firebaseapp.com",
+      projectId: "html-project-fac38",
+      storageBucket: "html-project-fac38.firebasestorage.app",
+      messagingSenderId: "396617400947",
+      appId: "1:396617400947:web:abbba7be1586e5b9c66006",
+      measurementId: "G-XJRN8JB1YK"
+    };
+
+    window.db = getFirestore(initializeApp(firebaseConfig));
+    window.collection = collection;
+    window.getDocs = getDocs;
+    window.doc = doc;
+    window.getDoc = getDoc;
+  </script>
+  <script src="data.js"></script>
+  <script src="courses-data.js"></script>
+  <script src="courses-script.js"></script>
+
+  <!-- Bottom Running Announcement Ticker -->
+<div class="ticker-container">
+  <div class="ticker-text" id="running-ticker">Loading RMCodeLab announcements...</div>
+</div>
+
+</body>
+</html>
